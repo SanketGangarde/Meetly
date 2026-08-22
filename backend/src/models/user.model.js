@@ -22,7 +22,12 @@ const userSchema = new mongoose.Schema({
 
     password: {
         type: String,
-        required: true
+        // Optional because Google OAuth users won't have a password
+    },
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true // allows null values without unique constraint errors
     },
 
     token: {
