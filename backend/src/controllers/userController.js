@@ -165,7 +165,7 @@ export const googleAuthCallback = async (req, res) => {
         await user.save();
 
         const isProduction = process.env.NODE_ENV === "production";
-        const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+        const clientUrl = process.env.CLIENT_URL || "";
 
         // Set httpOnly cookie for session
         res.cookie("token", token, { 
@@ -177,7 +177,7 @@ export const googleAuthCallback = async (req, res) => {
         // Redirect to frontend dashboard
         return res.redirect(`${clientUrl}/dashboard`);
     } catch (error) {
-        const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+        const clientUrl = process.env.CLIENT_URL || "";
         return res.redirect(`${clientUrl}/auth?error=server_error`);
     }
 };

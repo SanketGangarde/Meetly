@@ -14,7 +14,7 @@ export const connectToSocket = (server) => {
 
     const io = new Server(server, {
         cors: {
-            origin: process.env.CLIENT_URL || true,
+            origin: (origin, callback) => callback(null, origin || "*"),
             methods: ["GET", "POST"],
             credentials: true,
             allowedHeaders: ["Authorization"]

@@ -39,19 +39,15 @@ app.use("/api", apiLimiter);
 
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (mobile apps, curl, etc.) or matching CLIENT_URL or dev localhost
-        if (
-            !origin ||
-            !process.env.CLIENT_URL ||
-            origin === process.env.CLIENT_URL ||
-            origin.startsWith("http://localhost:") ||
-            origin.startsWith("http://127.0.0.1:")
-        ) {
-            return callback(null, true);
-        }
-        return callback(null, true);
+        // Allow requests with no origin (mobile apps, curl, etc.)
+        if (!origin) return callback(null, true);
+        
+        // Echo the exact request origin to satisfy credentials: true requirements
+        return callback(null, origin);
     },
     credentials: true, // allow cookies to be sent
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
 }));
 app.use(cookieParser());
 app.use(express.json({ limit: "40kb" }));
@@ -60,9 +56,6 @@ app.use(passport.initialize());
 
 app.use("/api/v1/users", userRouter);
 
-app.get("/home", (req, res) => {
-    res.json({ "welcome": "home" });
-});
 
 const PORT = process.env.PORT || 3000;
 
@@ -78,6 +71,7 @@ const start = async () => {
         } else {
             await mongoose.connect(dbUrl);
             console.log("MongoDB connected successfully!");
+
         }
     } catch (err) {
         console.error("MongoDB connection failed!", err);
