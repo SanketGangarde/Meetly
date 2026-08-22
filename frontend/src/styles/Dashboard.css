@@ -1,0 +1,331 @@
+/* ===========================
+   Google Font Import
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ===========================
+   Dashboard — Root Container
+=========================== */
+.dashboard {
+    min-height: 100vh;
+    background-color: #0f0f1a;
+    /* deep dark background */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    padding: 48px 64px;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   Welcome Section
+=========================== */
+.welcome-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 16px;
+}
+
+.welcome-text {
+    text-align: left;
+}
+
+.welcome-section h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.welcome-section p {
+    font-size: 1rem;
+    color: #aaaabd;
+    margin: 0;
+}
+
+.logout-btn {
+    padding: 10px 22px;
+    background: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.35);
+    border-radius: 10px;
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logout-btn:hover {
+    background: rgba(220, 53, 69, 0.28);
+    transform: scale(1.03);
+}
+
+
+/* ===========================
+   Meeting Action Cards Row
+=========================== */
+.meeting-actions {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* stack on small screens */
+    margin-bottom: 48px;
+}
+
+/* ===========================
+   Shared Card Base Styles
+=========================== */
+.new-meetCard,
+.join-meetCard {
+    border-radius: 20px;
+    padding: 36px 32px;
+    width: 320px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+
+.new-meetCard h2,
+.join-meetCard h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.new-meetCard p,
+.join-meetCard p {
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* ===========================
+   New Meeting Card
+   — Purple gradient (left)
+=========================== */
+.new-meetCard {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.35);
+}
+
+.new-meetCard h2 {
+    color: #ffffff;
+}
+
+.new-meetCard p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Create Meeting button */
+.new-meetCard button {
+    width: 100%;
+    padding: 13px 0;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    backdrop-filter: blur(4px);
+}
+
+.new-meetCard button:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.02);
+}
+
+.new-meetCard button:active {
+    transform: scale(0.98);
+}
+
+/* ===========================
+   Join Meeting Card
+   — Dark glass (right)
+=========================== */
+.join-meetCard {
+    background: #1e1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.join-meetCard h2 {
+    color: #ffffff;
+}
+
+.join-meetCard p {
+    color: #8b8ba7;
+}
+
+/* Code Input */
+.join-meetCard input {
+    width: 100%;
+    padding: 13px 16px;
+    background: #252544;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.join-meetCard input::placeholder {
+    color: #9595ad;
+}
+
+.join-meetCard input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Join button */
+.join-meetCard button {
+    width: 100%;
+    padding: 13px 0;
+    background: #3b82f6;
+    /* bright blue */
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.join-meetCard button:hover {
+    background: #2563eb;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    transform: scale(1.02);
+}
+
+.join-meetCard button:active {
+    transform: scale(0.98);
+}
+
+/* ===========================
+   Recent Meetings Section
+=========================== */
+.recent-meetings {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.recent-meetings h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===========================
+   Empty State
+=========================== */
+.empty-state {
+    background: #252544;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+}
+
+.empty-state p {
+    color: #a0a0a9;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ===========================
+   Responsive — Tablet & Mobile
+=========================== */
+@media (max-width: 720px) {
+    .dashboard {
+        padding: 32px 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .new-meetCard,
+    .join-meetCard {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* ===========================
+   Meetings List
+=========================== */
+.meetings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.meeting-row {
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.meeting-row:hover {
+    background: #1e1e36;
+    border-color: rgba(247, 147, 30, 0.25);
+}
+
+.meeting-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.code-icon { font-size: 1rem; }
+
+.code-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #F7931E;
+    letter-spacing: 0.5px;
+}
+
+.meeting-meta {
+    flex: 1;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+}
