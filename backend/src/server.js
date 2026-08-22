@@ -24,6 +24,9 @@ const app = express();
 const server = createServer(app);
 const io = connectToSocket(server);
 
+// Trust first proxy (Render / Reverse Proxy) for rate limiting & secure cookies
+app.set("trust proxy", 1);
+
 // Security Middleware: Set secure HTTP headers
 app.use(helmet());
 
